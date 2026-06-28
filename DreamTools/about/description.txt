@@ -1,0 +1,1 @@
+DreamTools is a private coop utility for Shape of Dreams. F5 game-style panel, Client/Host/Network pages, auto attack, loot magnet, resources, map travel, HUD/UI safety options, visible loading progress, EN/ES/PT language switching and host-approved coop requests.

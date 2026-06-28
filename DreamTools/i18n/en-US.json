@@ -1,0 +1,26 @@
+{
+  "title": "DreamTools",
+  "summary": "Local trainer menu with configurable combat, resource and utility options.",
+  "features": [
+    "In-game menu with F5",
+    "God mode, infinite mana, no cooldowns and auto heal",
+    "Damage, gold, dream dust, XP and move speed multipliers",
+    "100% crit chance and teleport to cursor",
+    "Quick hotkeys and console commands",
+    "Reward Variety for recently repeated memories and essences",
+    "Optional Yubar Star Cookie protection in private co-op",
+    "Profile name color helper for rich-text name tags",
+    "HUD / UI controls for Field of View, FPS and ping",
+    "Pop-up notification duration and cooldown notification visibility",
+    "Separate auto collectors for Stardust, Yubar Star Cookies and Bismuth Books of Knowledge",
+    "Optional Auto-Skip Cutscenes utility",
+    "One-Hit Stones for Gold and Dream Dust stones",
+    "Faster Looting for resource pickup travel and radius",
+    "Shrine of Guidance Boost for larger radius and lower activation delay",
+    "Fast Hold to Upgrade for memory and gem upgrades",
+    "Audio Effects Limiter for repeated entity sounds",
+    "Hit Effects Mode with Default, Limit and Disable options"
+    ,"Native game-style panel with Status, Combat, Auto Attack, Resources, Player Utility, HUD / UI, Map / UI, Host / Server, Network / Coop, Commands, Diagnostics and Hotkeys"
+    ,"Visible loading progress and localized diagnostics after Apply Mod"
+  ]
+}

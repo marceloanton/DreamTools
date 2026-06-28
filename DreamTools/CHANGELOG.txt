@@ -1,0 +1,191 @@
+# Changelog
+
+## 0.4.1 - Post-upload stability and feature polish
+
+### UI And Config
+- Reworked the Workshop preview using the stronger legacy BirkaMod presentation style under the DreamTools name.
+- Updated package EN/ES/PT feature lists and Workshop text so the upload describes the current pages and visible loading progress.
+- Added explicit CLIENT / HOST / COOP labels to in-game sections so scope is clear without relying only on color.
+- Reorganized the native in-game panel into Status, Combat, Auto Attack, Resources, Player Utility, Map / UI, Host / Server, Network / Coop, Commands, Diagnostics and Hotkeys pages.
+- Added compact descriptions to each native in-game area so players can understand what the section affects before changing options.
+- Refactored the shared native layout with reusable panel groups, control rows, info cards, command cards and controlled TextMeshPro font/wrapping rules.
+- Fixed command, status and diagnostic rendering so command names/usages stay no-wrap while long descriptions reserve wrapped vertical space.
+- Increased native description height and replaced cramped fixed labels with wider shared control rows to avoid ES/PT text overlap.
+- Added safer fallback IMGUI cards and description styles so the fallback path does not return to cramped command tables.
+- Replaced the cramped native two-row tab bar with a header/sidebar/content/footer shell.
+- Added a lazy, safe profile greeting in the header and Status page when the current player/profile name can be resolved.
+- Moved Auto Attack into a dedicated page with core, rotation, targeting and slot controls.
+- Reworked Resources around a selected-resource workflow with one add action instead of separate unstructured add buttons.
+- Split Host / Server and Network / Coop into separate pages with localized warning descriptions.
+- Moved host/server and coop/network controls out of local pages so Host / Server and Network / Coop are clearly separated.
+- Added a HUD / UI page with client-side Field of View, Show FPS and Show Ping controls.
+- Added HUD / UI controls for memory/essence/curse pop-up duration and hiding the memory cooldown notification.
+- Improved native in-game controls so toggles, numeric values and option selectors visibly communicate their editable state.
+- Made native in-game selector buttons show the current selected value for language, Auto Attack rotation/priority and Hit Effects mode.
+- Made the native content scroll width responsive so the sidebar/content layout does not force controls off-screen on narrower resolutions.
+- Cleaned the public Workshop changenote so it no longer advertises old console alias names.
+- Translated and reordered the visible ModConfig menu text to match the Spanish in-game structure before upload.
+- Added an in-game Commands tab that documents all current `dt_*` console commands without reintroducing legacy aliases.
+- Added an in-game Diagnostics tab for runtime readiness, patch state and loading progress without increasing normal debug spam.
+- Tuned the in-game menu skin to a quieter, less saturated palette for better readability.
+- Added Platinum to the compact resource amount slider and selected-resource add action.
+
+### Console Commands
+- Centralized all `dt_*` command names, descriptions, usage examples, categories and host-sensitivity flags into one metadata table used by registration, help and the in-game Commands tab.
+- Expanded `dt_help` output so every command reports its usage, category and host/server sensitivity.
+- Reduced loader scan noise by avoiding `DreamToolsCommandInfo` parameters on UI/help rendering helpers.
+
+### Combat And Utility
+- Added separate auto collectors for Stardust, Yubar Star Cookies and Bismuth Books of Knowledge with reduced client-side ranges.
+- Added Auto-Skip Cutscenes as an optional gameplay utility for skippable cutscenes.
+- Added One-Hit Stones for host/server runs so Gold and Dream Dust stones break from one hit.
+- Added Faster Looting to speed up pickup travel and increase pickup attraction/radius for resource orbs.
+- Added Shrine of Guidance Boost to increase guidance radius and reduce activation/heal delays.
+- Added Fast Hold to Upgrade to speed up the game's hold-to-confirm memory/gem upgrade flow.
+- Added Audio Effects Limiter to prevent identical entity sounds from triggering multiple times in the same frame.
+- Added Hit Effects Mode with Default, Limit and Disable options for repeated combat feedback effects.
+- Added Reward Variety for host/server runs, rerolling recently repeated memories and essences within the same rarity pool.
+- Added optional Yubar Star Cookie protection for private co-op so non-Yubar heroes cannot consume protected Star Cookies when enabled.
+- Added a profile name color helper that builds and copies `<color=#HEX>Name</color>` rich-text tags without editing the save file automatically.
+
+### Performance And Stability
+- Localized the visible DreamTools loading phases and reused the same progress text in native/IMGUI diagnostics.
+- Fixed patch-backed options so enabling them before a local hero exists still requests the lazy runtime patch pass.
+- Added Render Light Safety as an opt-in HUD/UI guard for the known URP LightCookieManager bounds exception; it is disabled by default and only returns URP's own no-cookie sentinel for that exact exception.
+- Kept command registration incremental by iterating the command metadata across frames instead of hard-coding a long startup block.
+- Added an optional entity audio limiter to reduce repeated sound-effect bursts during heavy combat.
+- Added an optional hit effects limiter/disable mode to reduce repeated combat feedback effect bursts.
+
+### Build And Tests
+- Added structural coverage for the command metadata table and native Dashboard/Host-Coop/Commands/Diagnostics sections.
+- Added structural coverage for the shared native panel layout, TextMeshPro wrapping/no-wrap configuration and command-card rendering.
+- Added structural coverage for the new sidebar shell, profile greeting, separated Auto Attack/Player Utility/Map UI/Host Server/Network Coop pages and command network-sensitivity metadata.
+
+## 0.4.0 - DreamTools migration upload
+
+### Migration Notice
+- This upload moves the mod forward under the new public name: DreamTools.
+- The old BirkaMod project will be retired/deleted, and future updates will continue under DreamTools.
+- Players should keep/use DreamTools going forward and remove the old BirkaMod entry if both appear installed.
+- The local deploy script now moves old BirkaMod deploy folders outside the game's `Mods` folder to avoid loading two copies.
+- Fixed the legacy deploy migration so old BirkaMod folders are moved outside the game's `Mods` folder instead of being left where the loader can still scan them.
+- Moved the template mod folder out of the live `Mods` folder so the loader does not scan inactive template metadata.
+- Excluded backup image files from deploy and Workshop packages.
+- Released as version 0.4.0 for the DreamTools migration upload.
+
+### Branding And Workshop
+- Renamed public branding from BirkaMod to DreamTools across metadata, in-game UI, logs, loading overlay, Workshop text, README and disclaimer.
+- Updated author metadata to Byrka.
+- Refreshed Workshop preview and icon assets for the DreamTools name.
+- Prepared the DreamTools Workshop package under `_WorkshopUpload\DreamTools`.
+- Updated Workshop VDF title, description, preview path and package path for DreamTools.
+
+### Console Commands
+- Added new primary `dt_*` console commands: `dt_help`, `dt_gold`, `dt_dust`, `dt_stardust`, `dt_platinum`, `dt_node`, `dt_reveal`, `dt_unlock`, `dt_heal`, `dt_mana`, `dt_cooldowns`, `dt_god` and `dt_damage`.
+- Removed old `bm_*` and `birka_*` command aliases from runtime registration so only the short `dt_*` commands load.
+- Reduced console command startup work by registering 13 commands instead of 39 command/alias entries.
+
+### UI And Config
+- Added Client Side / Local, Host / Server and Network / Coop separation in config.
+- Added colored in-game section headers so sensitive host/server and network options are easy to identify.
+- Improved in-game window scrolling so lower controls stay reachable on screen.
+- Replaced dense resource amount step buttons with compact sliders and quick presets for gold, dream dust and stardust.
+- Added a single selected-resource add action for Gold, Dream Dust and Stardust to reduce button clutter in the Resources tab.
+- Added EN/ES/PT language switching that applies immediately from config and in-game UI.
+
+### Combat And Utility
+- Improved Auto Attack rotation modes: Balanced, Skills First and Basic First.
+- Expanded Auto Attack controls for basic, primary, secondary, Q, W, E and R.
+- Improved loot magnet to collect stardust explicitly without triggering portals or generic interact actions.
+
+### Performance And Stability
+- Improved startup loading by deferring initialization and replacing broad Harmony PatchAll scanning with an explicit guarded patch list.
+- Reduced class-load work by making translations, pickup reflection and runtime patch metadata lazy.
+- Kept Awake lightweight by deferring console command and coop handler registration.
+- Reduced console command registration work by dropping legacy alias groups and keeping only the short `dt_*` command set.
+- Spread Harmony runtime patching across multiple frames to avoid visible game hitches after fast mod load.
+- Stopped automatic Harmony patching during Apply Mod; runtime patches now start only when a patch-backed feature is enabled or used.
+- Added a lightweight DreamTools loading/ready overlay so Apply Mod does not appear frozen after the game's native message disappears.
+- Made the ready overlay timer start on the first visible GUI frame so it is not consumed while the game's native Apply Mod overlay blocks rendering.
+- Delayed heavy IMGUI skin/texture creation until the trainer window or toast UI actually needs it.
+- Reduced duplicate startup log output by using direct Unity logs for internal initialization messages.
+- Reduced runtime allocations in loot magnet.
+- Throttled automatic cooldown resets.
+- Removed per-attempt auto attack slot arrays.
+- Debounced in-game UI config saves.
+- Replaced recoverable startup patch errors with warnings to reduce red console spam.
+
+### Build And Tests
+- Reduced compile references from 55 to the minimal required set for cleaner and faster tooling/build startup.
+- Removed missing build references so Release builds finish with 0 warnings and 0 errors.
+- Added/updated structural tests for branding, startup performance, role separation, language switching, loot magnet, resource controls, console commands, runtime optimization, auto attack, window sizing and workshop workflow.
+
+## 0.3.8
+- Increased the default in-game trainer window size.
+- Replaced the fixed scroll area with dynamic height based on the current window.
+- Added Compact, Large and Max size buttons to the trainer window.
+- Added screen clamping so the window stays visible after resizing.
+
+## 0.3.7
+- Added Auto Basic Attack using the game's native attack command.
+- Added Auto Primary and Auto Secondary skill toggles for click-based skills.
+- Expanded Auto Attack rotation to Basic, Primary, Secondary, Q, W, E and R.
+- Added configurable Auto Attack search range.
+- Improved target filtering to avoid friendly targets.
+
+## 0.3.6
+- Improved Auto Attack target selection so skills use one coherent enemy target instead of picking per-skill.
+- Added target priority settings: nearest, low HP and high HP.
+- Added target lock duration and non-targeted skill toggle.
+- Disabled non-targeted auto casts by default to avoid wasting skills without a valid enemy.
+
+## 0.3.5
+- Reorganized mod config into visible Combat, Resources, Coop/Network, UI/Map and Hotkeys blocks.
+- Added configurable Auto Attack slots for Q/W/E/R.
+- Added Auto Attack Require Combat and Target Delay settings.
+- Separated Auto Attack controls in the in-game Combat tab.
+
+## 0.3.4
+- Added Auto Attack / Auto Cast option inspired by Bismuth's auto-cast star.
+- Auto Attack cycles Q/W/E/R, finds valid enemies and casts server-side while in combat.
+- Added configurable Auto Attack interval.
+
+## 0.3.3
+- Added styled trainer window colors and section headers.
+- Added visual toast notifications for trainer actions and hotkeys.
+- Added Safe, Power, Chaos and Coop presets.
+- Added Reset Defaults button.
+
+## 0.3.2
+- Menu Language is now an enum selector in the game's mod config instead of a numeric field.
+- Added in-game hotkey rebinding from the Hotkeys tab.
+- Added rebind prompt handling with Escape to cancel.
+
+## 0.3.1
+- Fixed repeated NullReferenceException spam before a local player exists.
+- Menu now starts closed and opens with F5, avoiding title-screen UI errors.
+- Workshop package now points to an optimized Release DLL only.
+
+## 0.3.0
+- Added private coop request mode for friends with host-side approval.
+- Improved trainer window layout with larger size, sections and scrolling.
+- Added Unlock all heroes + skills button and birka_unlock_heroes_skills command.
+- Added persistent numeric in-game language selector.
+- Added map node travel controls and birka_node command.
+- Added reveal map button and birka_reveal_map command.
+- Added exact stardust amount buttons and multiplier controls.
+- Added clearer map node selection with node type/status/room and validation bypass.
+
+## 0.2.0
+- Added tabbed in-game menu.
+- Added status panel with HP, mana, level, XP and currencies.
+- Added loot magnet.
+- Added free shop and free upgrade toggles.
+- Added stardust command/hotkey.
+- Added attack speed, ability haste and shield options.
+
+## 0.1.0
+- Initial trainer commands and config.
+
+
+

@@ -1,0 +1,5 @@
+DreamTools is intended for single-player or private co-op games with consent only.
+Gameplay-changing options should be used by the host or through host-approved co-op requests.
+Do not use trainer features in public matchmaking or without all lobby members agreeing.
+Use at your own risk. Back up your save files before using unlock/profile tools.
+Shape of Dreams and its assets belong to their respective owners.

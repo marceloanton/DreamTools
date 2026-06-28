@@ -4,13 +4,18 @@ Private co-op utility mod for Shape of Dreams.
 
 ## Download
 
-Use `DreamTools-v0.4.1.zip` from this repository.
+Recommended:
+
+- Download `DreamTools-v0.4.1.zip` from this repository, then extract it.
+- Or download the repository and copy the included `DreamTools` folder.
+
+Do not copy the whole GitHub repository folder into the game. The game needs the `DreamTools` folder itself.
 
 ## Install
 
 1. Close Shape of Dreams.
-2. Extract `DreamTools-v0.4.1.zip`.
-3. Copy the extracted `DreamTools` folder into:
+2. Extract `DreamTools-v0.4.1.zip`, or use the `DreamTools` folder included in this repository.
+3. Copy only the `DreamTools` folder into:
 
 ```text
 C:\Program Files (x86)\Steam\steamapps\common\Shape of Dreams\Mods

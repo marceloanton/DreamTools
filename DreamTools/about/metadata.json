@@ -1,0 +1,12 @@
+{
+  "id": "com.byrka.dreamtools",
+  "name": "DreamTools",
+  "author": "Byrka",
+  "modVer": "0.4.1",
+  "supportedGameVer": [
+    "*"
+  ],
+  "assemblies": [
+    "bin/Release/netstandard2.1/BirkaMod.dll"
+  ]
+}

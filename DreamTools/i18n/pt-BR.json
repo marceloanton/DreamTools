@@ -1,0 +1,26 @@
+{
+  "title": "DreamTools",
+  "summary": "Trainer local com menu configuravel para combate, recursos e utilidades.",
+  "features": [
+    "Menu dentro do jogo com F5",
+    "Modo deus, mana infinita, sem cooldowns e cura automatica",
+    "Multiplicadores de dano, ouro, po dos sonhos, XP e velocidade",
+    "Critico 100% e teleporte ao cursor",
+    "Hotkeys rapidas e comandos de console",
+    "Variedade de recompensas para memories e essencias repetidas",
+    "Protecao opcional de Star Cookies do Yubar em coop privado",
+    "Helper de cor para nomes de perfil com rich-text",
+    "Controles HUD / UI para campo de visao, FPS e ping",
+    "Duracao de pop-ups e visibilidade de notificacoes de cooldown",
+    "Coletores separados para Stardust, Star Cookies do Yubar e Books of Knowledge do Bismuth",
+    "Utilidade opcional para pular cinematicas automaticamente",
+    "Pedras com um golpe para pedras de ouro e po dos sonhos",
+    "Loot mais rapido para viagem e raio de pickups de recursos",
+    "Melhoria Shrine of Guidance com mais raio e menos delay de ativacao",
+    "Hold upgrade rapido para melhorias de memories e gemas",
+    "Limitador de audio para sons de entidade repetidos",
+    "Modo de efeitos de impacto com opcoes Default, Limitar e Desativar"
+    ,"Painel com estilo nativo do jogo com Estado, Combate, Auto ataque, Recursos, Utilidade do jogador, HUD / UI, Mapa / UI, Host / Servidor, Rede / Coop, Comandos, Diagnostico e Hotkeys"
+    ,"Progresso de carregamento visivel e diagnosticos localizados depois de aplicar o mod"
+  ]
+}
