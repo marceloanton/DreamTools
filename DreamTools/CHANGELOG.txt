@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.4.2 - Auto Attack safety and combo synergy
+
+### Combat And Utility
+- Added an optional Auto Attack Combo Chain rotation mode that tries opener/combo skills before falling back to secondary/basic attacks.
+- Hardened Auto Attack target selection so locked targets are reused only when an enabled slot can still use them.
+- Added an Auto Attack enemy-target safety gate that rejects same-owner entities, dead/non-combat entities and resource stones before casting.
+- Removed a per-tick LINQ queued-cast check from Auto Attack to reduce avoidable runtime allocations.
+
 ## 0.4.1 - Post-upload stability and feature polish
 
 ### UI And Config
